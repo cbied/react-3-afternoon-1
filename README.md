@@ -789,7 +789,8 @@ class App extends Component {
   }
   
   componentDidMount() {
-    axios.get('https://practiceapi.devmountain.com/api/posts').then( results => {
+    axios.get('https://practiceapi.devmountain.com/api/posts')
+            .then( results => {
       this.setState({ posts: results.data });
     });
   }
@@ -807,7 +808,7 @@ class App extends Component {
   }
 
   createPost( text ) {
-    axios.post('https://practiceapi.devmountain.com/api/posts', { text }).then( results => {
+    axios.post('https://practiceapi.devmountain.com/api/posts?id=$', { text }).then( results => {
       this.setState({ posts: results.data });
     });
   }
